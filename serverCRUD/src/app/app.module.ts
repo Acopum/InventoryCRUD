@@ -10,6 +10,7 @@ import { UpdateComponent } from './operations/update/update.component';
 
 import { MatToolbarModule } from '@angular/material';
 import { RouterModule, Routes } from '@angular/router';
+import { ServerItemService } from './server-item.service';
 
 const routes: Routes = [
   { path: 'create', component: CreateComponent },
@@ -33,6 +34,7 @@ const routes: Routes = [
     MatToolbarModule
   ],
   providers: [
+    ServerItemService
   ],
   bootstrap: [
     AppComponent

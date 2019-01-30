@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServerItemService } from '../../server-item.service';
 
 @Component({
   selector: 'app-update',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdateComponent implements OnInit {
 
-  constructor() { }
+  constructor(private serverItemService: ServerItemService) { }
 
   ngOnInit() {
   }
