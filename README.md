@@ -12,7 +12,9 @@
 ## Description
 
 
-![weather](weatherApp.PNG)
+![diagramOrg](AppOrg.PNG)
+![UI](AppUI.PNG)
+![DB](dbOrg.PNG)
 
 ## API Calls
 
