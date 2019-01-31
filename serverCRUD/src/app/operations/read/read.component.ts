@@ -3,6 +3,7 @@ import { ServerItemService } from '../../server-item.service';
 import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material';
 import { ServerItem } from '../../serverItem.model';
+import { MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'app-read',
@@ -11,7 +12,7 @@ import { ServerItem } from '../../serverItem.model';
 })
 export class ReadComponent implements OnInit {
 
-  constructor(private serverItemService: ServerItemService, private router: Router) { }
+  constructor(private serverItemService: ServerItemService, private snackBar: MatSnackBar, private router: Router) { }
 
   servers: ServerItem[];
   displayedColumns = [
@@ -36,4 +37,11 @@ export class ReadComponent implements OnInit {
   updateServer(id){
     this.router.navigate([`/update/${id}`]);
   }
+
+  deleteServer(id) {
+   this.serverItemService.deleteServer(id).subscribe(() => {
+     this.snackBar.open('Entry deleted successfully', 'OK', { duration: 3000, });
+     this.fetchServers();
+   });
+}
 }

@@ -33,4 +33,8 @@ export class ServerItemService {
     };
     return this.http.post(`${this.url}/servers/update/${id}`, server);
   }
+
+  deleteServer(id) {
+    return this.http.get(`${this.url}/servers/delete/${id}`);
+  }
 }

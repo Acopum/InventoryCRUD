@@ -70,3 +70,12 @@ router.route('/servers/update/:id').post((req, res) => {
         }
     });
 });
+
+router.route('/servers/delete/:id').get((req, res) => {
+    ServerItem.findByIdAndRemove({_id: req.params.id}, (err, server) => {
+        if (err)
+            res.json(err);
+        else
+            res.json('Server deleted');
+    })
+})
