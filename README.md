@@ -31,6 +31,9 @@
 
 ![UI](AppUI.PNG)
 
+
+![Update](AppUpdate.PNG)
+
   Navigating the database was done using Robo3T, which provided a native GUI to interact with the MongoDB collections. The port selected (27017) was the default given by Robo3T when creating a new collection.
 
 ![DB](dbOrg.PNG)
