@@ -5,7 +5,8 @@ import mongoose from 'mongoose';
 
 const app = express();
 const router = express.Router();
-const portNo = 60221 ;
+const portNo = 60221;
+const mongoPort = 27017;
 
 import ServerItem from './models/serverItem';
 
@@ -13,16 +14,16 @@ app.options('*', cors())
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost:27017/servers');
+mongoose.connect('mongodb://localhost:'+mongoPort+'/servers');
 
 const connection = mongoose.connection;
 
 connection.once('open', () => {
-    console.log('MongoDB database connection established successfully!');
+    console.log('MongoDB database connected!');
 });
 
 app.use('/', router);
-app.listen(portNo, () => console.log(`Express server running on port `+portNo));
+app.listen(portNo, () => console.log(`Express running on port `+portNo));
 
 //read all
 router.route('/servers').get((req, res) => {
