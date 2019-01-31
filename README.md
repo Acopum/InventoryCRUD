@@ -13,13 +13,14 @@
 * Install dependencies for frontend (Angular) and start (App configured to run on 60221)
   * Open new console
   * Navigate to /serverCRUD directory in console
-  * 'ng add'
+  * 'ng update'
+  * 'npm install'
   * 'ng serve --open'
 * Setup MongoDB database (App configured to run on default 27017)
-  * If you don't have MongoDB, install
-  * Make a folder on same drive as install with structure '[MONGODRIVE]://data/db'
+  * If you don't have MongoDB, install from MongoDB website
+     * Make a folder on same drive as install with structure '[MONGODRIVE]://data/db'
   * Run Mongo server
-  * Using Robo 3T or console, create new DB called 'servers' with collection 'servers'
+  * Using Robo 3T or console+MongoClient, create new DB called 'servers' with collection 'servers'
 
 ## Description
 
