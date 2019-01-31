@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+const portNo = 60221;
+
 @Injectable({
   providedIn: 'root'
 })
+
 export class ServerItemService {
 
-  url = 'http://localhost:4000';
+  url = 'http://localhost:'+portNo;
 
   constructor(private http: HttpClient) {
 

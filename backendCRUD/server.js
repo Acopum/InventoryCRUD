@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 
 const app = express();
 const router = express.Router();
+const portNo = 60221 ;
 
 import ServerItem from './models/serverItem';
 
@@ -21,7 +22,7 @@ connection.once('open', () => {
 });
 
 app.use('/', router);
-app.listen(4000, () => console.log(`Express server running on port 4000`));
+app.listen(portNo, () => console.log(`Express server running on port `+portNo));
 
 //read all
 router.route('/servers').get((req, res) => {

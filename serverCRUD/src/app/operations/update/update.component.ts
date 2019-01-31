@@ -40,10 +40,15 @@ export class UpdateComponent implements OnInit {
   }
 
   updateServer(name) {
-    this.serverService.updateServer(this.id, name).subscribe(() => {
-      this.snackBar.open('Entry updated successfully', 'OK', { duration: 3000, });
-      this.router.navigate(['/read']);
-    });
+    if(typeof name !== 'string'){
+      this.snackBar.open('Input must be string', 'OK', { duration: 3000, });
+    }
+    else{
+      this.serverService.updateServer(this.id, name).subscribe(() => {
+        this.snackBar.open('Entry updated successfully', 'OK', { duration: 3000, });
+        this.router.navigate(['/read']);
+      });
+    }
   }
 
 }
