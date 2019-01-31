@@ -7,7 +7,7 @@ import { ServerItemService } from '../../server-item.service';
 import { ServerItem } from '../../serverItem.model';
 
 @Component({
-  selector: 'app-edit',
+  selector: 'app-update',
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
 })
@@ -23,6 +23,7 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.id);
     this.route.params.subscribe(params => {
       this.id = params.id;
       this.serverService.getServersByID(this.id).subscribe(res => {
@@ -41,6 +42,7 @@ export class UpdateComponent implements OnInit {
   updateServer(name) {
     this.serverService.updateServer(this.id, name).subscribe(() => {
       this.snackBar.open('Entry updated successfully', 'OK', { duration: 3000, });
+      this.router.navigate(['/read']);
     });
   }
 

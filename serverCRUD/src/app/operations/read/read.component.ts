@@ -14,7 +14,11 @@ export class ReadComponent implements OnInit {
   constructor(private serverItemService: ServerItemService, private router: Router) { }
 
   servers: ServerItem[];
-  displayedColumns = ['name'];
+  displayedColumns = [
+    'id',
+    'name',
+    'actions'
+  ];
 
 
   ngOnInit() {
@@ -30,6 +34,6 @@ export class ReadComponent implements OnInit {
   }
 
   updateServer(id){
-    this.router.navigate(['/update/${id}']);
+    this.router.navigate([`/update/${id}`]);
   }
 }

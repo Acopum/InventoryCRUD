@@ -57,11 +57,11 @@ router.route('/servers/create').post((req, res) => {
 
 //update one
 router.route('/servers/update/:id').post((req, res) => {
-    serverItem.findById(req.params.id, (err, server) => {
+    ServerItem.findById(req.params.id, (err, server) => {
         if (!server)
             return next(new Error('Could not find item'));
         else {
-            server.title = req.body.name;
+            server.name = req.body.name;
             server.save().then(server => {
                 res.json('Server updated');
             }).catch(err => {
