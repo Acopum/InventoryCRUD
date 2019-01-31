@@ -2,10 +2,10 @@ import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
-let serverItem = new Schema({
+let ServerItem = new Schema({
     name: {
         type: String
     }
 });
 
-export default mongoose.model('serverItem', serverItem);
+export default mongoose.model('ServerItem', ServerItem, 'servers');

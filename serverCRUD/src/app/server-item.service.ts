@@ -13,24 +13,24 @@ export class ServerItemService {
   }
 
   getServers() {
-    return this.http.get('${this.url}/servers')
+    return this.http.get(`${this.url}/servers`)
   }
 
   getServersByID(id) {
-    return this.http.get('${this.url}/servers/${id}')
+    return this.http.get(`${this.url}/servers/${id}`)
   }
 
   createServer(name) {
     const server = {
       name: name,
     };
-    return this.http.post('${this.url}/servers/create', server);
+    return this.http.post(`${this.url}/servers/create`, server);
   }
 
   updateServer(id, name) {
     const server = {
       name: name,
     };
-    return this.http.post('${this.uri}/servers/update/${id}', server);
+    return this.http.post(`${this.url}/servers/update/${id}`, server);
   }
 }

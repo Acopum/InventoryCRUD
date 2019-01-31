@@ -1,3 +1,19 @@
-<p>
-  create works!
-</p>
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Add Server</h3>
+    </section>
+    <mat-divider></mat-divider>
+    <br>
+    <form [formGroup]="createForm" class="create-form">
+      <mat-form-field class="field-full-width">
+        <input matInput placeholder="Server Name" formControlName="name" #name>
+      </mat-form-field>
+      <mat-divider></mat-divider>
+      <br><br>
+      <button mat-raised-button color="accent" routerLink="/list">Back</button>&nbsp;
+      <button type="submit" (click)="createServer(name.value)" [disabled]="createForm.pristine || createForm.invalid" mat-raised-button color="primary">Submit</button>
+    </form>
+  </mat-card>
+</div>
