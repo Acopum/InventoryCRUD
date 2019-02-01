@@ -11,21 +11,19 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./read.component.css']
 })
 export class ReadComponent implements OnInit {
-
-  constructor(private serverItemService: ServerItemService, private snackBar: MatSnackBar, private router: Router) { }
-
+  //array for all server entries
   servers: ServerItem[];
+  //tell material what columns to display
   displayedColumns = [
     'id',
     'name',
     'actions'
   ];
 
-
-  ngOnInit() {
-    this.fetchServers();
+  constructor(private serverItemService: ServerItemService, private snackBar: MatSnackBar, private router: Router) {
   }
 
+  //read all entries in db
   fetchServers(){
     this.serverItemService.getServers().subscribe((data: ServerItem[]) => {
       this.servers = data;
@@ -34,14 +32,21 @@ export class ReadComponent implements OnInit {
     })
   }
 
+  //go to update component
   updateServer(id){
     this.router.navigate([`/update/${id}`]);
   }
 
+  //delete entry
   deleteServer(id) {
    this.serverItemService.deleteServer(id).subscribe(() => {
      this.snackBar.open('Entry deleted successfully', 'OK', { duration: 3000, });
      this.fetchServers();
    });
-}
+  }
+
+  //on pageload, read all entries in db
+  ngOnInit() {
+    this.fetchServers();
+  }
 }

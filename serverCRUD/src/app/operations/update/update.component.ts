@@ -19,27 +19,14 @@ export class UpdateComponent implements OnInit {
   updateForm: FormGroup;
 
   constructor(private serverService: ServerItemService, private router: Router, private route: ActivatedRoute, private snackBar: MatSnackBar, private fb: FormBuilder) {
-    this.createForm();
-  }
-
-  ngOnInit() {
-    console.log(this.id);
-    this.route.params.subscribe(params => {
-      this.id = params.id;
-      this.serverService.getServersByID(this.id).subscribe(res => {
-        this.server = res;
-        this.updateForm.get('name').setValue(this.server.name);
-      });
-    });
-  }
-
-  createForm() {
+    //checking field if blank
     this.updateForm = this.fb.group({
       name: ['', Validators.required ]
     });
   }
 
   updateServer(name) {
+    //check if valid string
     if(typeof name !== 'string'){
       this.snackBar.open('Input must be string', 'OK', { duration: 3000, });
     }
@@ -49,6 +36,18 @@ export class UpdateComponent implements OnInit {
         this.router.navigate(['/read']);
       });
     }
+  }
+
+  //get ObjectID on initial load, and retrieve object to edit
+  ngOnInit() {
+    console.log(this.id);
+    this.route.params.subscribe(params => {
+      this.id = params.id;
+      this.serverService.getServersByID(this.id).subscribe(res => {
+        this.server = res;
+        this.updateForm.get('name').setValue(this.server.name);
+      });
+    });
   }
 
 }

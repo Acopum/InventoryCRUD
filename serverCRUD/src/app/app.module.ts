@@ -24,6 +24,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ServerItemService } from './server-item.service';
 import { ReactiveFormsModule } from '@angular/forms';
 
+//define components (pages) that app uses
 const routes: Routes = [
   { path: 'create', component: CreateComponent },
   { path: 'update/:id', component: UpdateComponent },
@@ -55,7 +56,7 @@ const routes: Routes = [
     MatTableModule,
     MatDividerModule,
     MatSnackBarModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   providers: [
     ServerItemService

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+//port number to send for
 const portNo = 60221;
 
 @Injectable({
@@ -8,11 +9,10 @@ const portNo = 60221;
 })
 
 export class ServerItemService {
-
   url = 'http://localhost:'+portNo;
 
+  //set http client, all functions after this communicate with backend
   constructor(private http: HttpClient) {
-
   }
 
   getServers() {

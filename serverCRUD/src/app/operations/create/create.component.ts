@@ -10,16 +10,19 @@ import { MatSnackBar } from '@angular/material';
   styleUrls: ['./create.component.css']
 })
 export class CreateComponent implements OnInit {
-
+  //create this form for validation
   createForm: FormGroup;
 
   constructor(private serverService: ServerItemService, private fb: FormBuilder, private router: Router, private snackBar: MatSnackBar) {
+    //check if field is blank
     this.createForm = this.fb.group({
       name: ['', Validators.required],
     });
   }
 
+  //create entry, and return to main list
   createServer(name) {
+    //check if field is valid string
     if(typeof name !== 'string'){
       this.snackBar.open('Input must be string', 'OK', { duration: 3000, });
     }
